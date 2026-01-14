@@ -1,453 +1,554 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" id="htmlTag">
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+
+                /* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.arabic {
+  font-family: 'Tahoma', 'Arial', sans-serif;
+  direction: rtl;
+}
+
+.english {
+  direction: ltr;
+}
+
+.hidden {
+  display: none !important;
+}
+
+header {
+  position: relative;
+  background: linear-gradient(to right, #198794, #146a73);
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.lang-toggle {
+  background: white;
+  color: #198794;
+  border: 2px solid white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-toggle:hover {
+  background: transparent;
+  color: white;
+}
+
+.lang-icon {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #198794;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 3px solid #146a73;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+p, .vision-text {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.achievement-item {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #198794;
+}
+
+.achievement-item strong {
+  color: #198794;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.images-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.images-row img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-button {
+  display: inline-block;
+  background: #198794;
+  color: white;
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.pdf-button:hover {
+  background: #146a73;
+  transform: translateY(-2px);
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.articles-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.article-btn {
+  background: #198794;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.article-btn:hover {
+  background: #146a73;
+  transform: translateY(-2px);
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+footer {
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-info {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.copyright {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Objectives Section */
+.objectives-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.objective-title {
+  background: #198794;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.objective-title:hover {
+  background: #146a73;
+}
+
+.objective-content {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.objective-content.active {
+  max-height: 500px;
+  padding: 1.5rem;
+}
+
+/* Scrollable content for long objective */
+.objective-content.scrollable {
+  max-height: 0;
+}
+
+.objective-content.scrollable.active {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.objective-content.scrollable.active::-webkit-scrollbar {
+  width: 6px;
+}
+
+.objective-content.scrollable.active::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.objective-content.scrollable.active::-webkit-scrollbar-thumb {
+  background: #198794;
+  border-radius: 10px;
+}
+
+/* Specialists Section */
+.specialists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.specialist-card {
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.specialist-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.specialist-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #198794;
+}
+
+.specialist-name {
+  color: #198794;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.specialist-desc-ar, .specialist-desc-en {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  section {
+    padding: 1.5rem;
+  }
+  
+  .articles-buttons {
+    flex-direction: column;
+  }
+  
+  .article-btn {
+    min-width: unset;
+  }
+  
+  .objective-content.scrollable.active {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.3rem;
+  }
+  
+  .logo {
+    width: 100px;
+  }
+  
+  .objective-content.scrollable.active {
+    max-height: 300px;
+  }
+}
+
+
+              </style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlTag">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Subul Al Khair Humanitarian Foundation - Providing prosthetic limbs and comprehensive rehabilitation for amputees in Syria and beyond. Non-profit, humanitarian mission." />
-  <meta name="keywords" content="prosthetic limbs, humanitarian foundation, Syria, rehabilitation, disability support, non-profit, amputees, Subul Al Khair" />
-  <meta name="author" content="Subul Al Khair Humanitarian Foundation" />
-  <title>Subul Al Khair Humanitarian Foundation</title>
-  <style>
-    /* Base styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f8f9fa;
-    }
-
-    .arabic {
-      font-family: 'Tahoma', 'Arial', sans-serif;
-      direction: rtl;
-    }
-
-    .english {
-      direction: ltr;
-    }
-
-    header {
-      position: relative;
-      background: linear-gradient(to right, #4a90e2, #2c6fbb);
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .shimmer {
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 200%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      animation: shimmer 3s infinite;
-      pointer-events: none;
-    }
-
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-
-    .logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .lang-toggle {
-      background: white;
-      color: #2c6fbb;
-      border: 2px solid white;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .lang-toggle:hover {
-      background: transparent;
-      color: white;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    section:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-      color: #2c6fbb;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-      text-align: center;
-      border-bottom: 3px solid #4a90e2;
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-
-    p, .vision-text {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      text-align: justify;
-    }
-
-    .achievements-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .achievement-item {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 10px;
-      border-left: 4px solid #2c6fbb;
-    }
-
-    .achievement-item strong {
-      color: #2c6fbb;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .images-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .images-row img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .pdf-button {
-      display: inline-block;
-      background: #2c6fbb;
-      color: white;
-      padding: 0.8rem 2rem;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .pdf-button:hover {
-      background: #4a90e2;
-      transform: translateY(-2px);
-    }
-
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .articles-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .article-btn {
-      background: #2c6fbb;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      text-align: center;
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .article-btn:hover {
-      background: #4a90e2;
-      transform: translateY(-2px);
-    }
-
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    footer {
-      background: #1a1a1a;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .contact-info {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-
-    .copyright {
-      opacity: 0.7;
-      font-size: 0.9rem;
-    }
-
-    /* Objectives Section */
-    .objectives-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .objective-title {
-      background: #2c6fbb;
-      color: white;
-      padding: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.3s ease;
-    }
-
-    .objective-title:hover {
-      background: #4a90e2;
-    }
-
-    .objective-content {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin-top: 0.5rem;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.5s ease;
-    }
-
-    .objective-content.active {
-      max-height: 500px;
-      padding: 1.5rem;
-    }
-
-    /* Specialists Section */
-    .specialists-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .specialist-card {
-      text-align: center;
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .specialist-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .specialist-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid #2c6fbb;
-    }
-
-    .specialist-name {
-      color: #2c6fbb;
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
-
-    .specialist-desc {
-      font-size: 1rem;
-      color: #333;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        padding: 1rem;
-      }
-      
-      h1 {
-        font-size: 1.5rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-      
-      section {
-        padding: 1.5rem;
-      }
-      
-      .articles-buttons {
-        flex-direction: column;
-      }
-      
-      .article-btn {
-        min-width: unset;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header {
-        padding: 1rem;
-      }
-      
-      h1 {
-        font-size: 1.3rem;
-      }
-      
-      .logo {
-        width: 60px;
-      }
-    }
-  </style>
+  <meta name="description" content="مؤسسة سبل الخير الإنسانية - تصنيع وتركيب الأطراف الصناعية وتأهيل ذوي الإعاقة في سوريا والمنطقة. مؤسسة غير ربحية." />
+  <meta name="keywords" content="أطراف صناعية, مؤسسة إنسانية, سوريا, تأهيل, دعم ذوي الإعاقة, غير ربحية, سبل الخير" />
+  <meta name="author" content="مؤسسة سبل الخير الإنسانية" />
+  <title>مؤسسة سبل الخير الإنسانية</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header>
     <div class="shimmer"></div>
-    <img src="logo.png" alt="Subul Al Khair Logo" class="logo" id="logoImg" />
-    <h1 id="siteTitle">Subul Al Khair Humanitarian Foundation</h1>
-    <button class="lang-toggle" id="langToggle">العربية</button>
+    <img src="logo.png" alt="شعار مؤسسة سبل الخير" class="logo" id="logoImg" />
+    <h1 id="siteTitle">مؤسسة سبل الخير الإنسانية</h1>
+    <button class="lang-toggle" id="langToggle">
+      <span class="lang-icon">EN</span>
+    </button>
   </header>
 
   <div class="container">
     <!-- Section 1: About Us -->
     <section id="about">
-      <h2 id="aboutTitle">About Us</h2>
-      <p id="aboutText">
-        Our staff consists of a group of academic competencies and practical experience. Our members hold specialized university degrees, qualifying them to provide the best services. We work tirelessly for aspiring children and youth with needs such as amputations and limb deficiencies, and the elderly who need care.
-      </p>
+      <h2 id="aboutTitle">من نحن</h2>
+      <p id="aboutTextAr">يتكون فريقنا من مجموعة من الكفاءات الأكاديمية والخبرة العملية. يحمل أعضاؤنا شهادات جامعية متخصصة، مما يؤهلهم لتقديم أفضل الخدمات. نعمل بلا كلل لأجل الأطفال والشباب الطموحين من ذوي الاحتياجات الخاصة مثل البتر ونقص الأطراف، وكبار السن الذين يحتاجون للرعاية.</p>
+      <p id="aboutTextEn" class="hidden">Our staff consists of a group of academic competencies and practical experience. Our members hold specialized university degrees, qualifying them to provide the best services. We work tirelessly for aspiring children and youth with needs such as amputations and limb deficiencies, and the elderly who need care.</p>
     </section>
 
     <!-- Section 2: Vision -->
     <section id="vision">
-      <h2 id="visionTitle">Our Vision</h2>
-      <div class="vision-text" id="visionText">
-        At Sobol Al Khair Humanitarian Foundation, we aspire to be a leading beacon in building a world that embraces people with disabilities, where They are considered active and influential partners in society. We strive to provide a comprehensive and integrated environment that enables them to regain their physical abilities and develop their psychological and social potential. We believe in the importance of opening doors to education, work, and creativity for them, so that together we can shape a more humane future where dignity is preserved and will flourishes. We are committed to promoting awareness and community participation, creating a society that celebrates diversity and enhances opportunities for all without exception.
+      <h2 id="visionTitleAr">رؤيتنا</h2>
+      <h2 id="visionTitleEn" class="hidden">Our Vision</h2>
+      <div class="vision-text" id="visionTextAr">
+        نطمح في مؤسسة سبل الخير الإنسانية لأن نكون منارة رائدة في بناء عالم يحتضن الأشخاص ذوي الإعاقة، حيث يُعتبرون شركاء فاعلين ومؤثرين في المجتمع. نسعى لتوفير بيئة شاملة ومتكاملة تمكّنهم من استعادة قدراتهم الجسدية وتنمية إمكاناتهم النفسية والاجتماعية. نؤمن بأهمية فتح أبواب التعليم والعمل والإبداع أمامهم، لنصنع معاً مستقبلاً أكثر إنسانية تحفظ فيه الكرامة ويزدهر الإرادة.
+      </div>
+      <div class="vision-text hidden" id="visionTextEn">
+        At Sobol Al Khair Humanitarian Foundation, we aspire to be a leading beacon in building a world that embraces people with disabilities, where They are considered active and influential partners in society. We strive to provide a comprehensive and integrated environment that enables them to regain their physical abilities and develop their psychological and social potential. We believe in the importance of opening doors to education, work, and creativity for them, so that together we can shape a more humane future where dignity is preserved and will flourishes.
       </div>
     </section>
 
     <!-- Section 3: Objectives -->
     <section id="objectives">
-      <h2>أهدافنا / Our Objectives</h2>
+      <h2 id="objectivesTitleAr">أهدافنا</h2>
+      <h2 id="objectivesTitleEn" class="hidden">Our Objectives</h2>
       <div class="objectives-container">
         <div class="objective-item">
           <div class="objective-title" onclick="toggleObjective(this)">
-            1- تنفيذ مشاريع إنسانية شاملة ومستدامة / Comprehensive & Sustainable Humanitarian Projects
-            <span>▼</span>
+            <span class="obj-num-ar">1-</span><span class="obj-num-en hidden">1-</span>
+            <span class="obj-text-ar">تنفيذ مشاريع إنسانية شاملة ومستدامة</span>
+            <span class="obj-text-en hidden">Comprehensive & Sustainable Humanitarian Projects</span>
+            <span class="arrow">▼</span>
           </div>
           <div class="objective-content">
-            إطلاق وتنفيذ مشاريع إنسانية ذات طابع اجتماعي، صحي، تعليمي، وتنموي تُعنى برعاية وتأهيل الأشخاص ذوي الإعاقة، تغطي كافة أراضي الجمهورية العربية السورية. (وتمتد إلى منطقة الشرق الأوسط والعالم العربي والإسلامي، بما يعزز المبادئ الإنسانية المحايدة)، وذلك بعد الحصول على الموافقات الرسمية من وزارة الشؤون الاجتماعية والعمل، ووفقاً للأنظمة والقوانين النافذة.
+            <p class="obj-content-ar">إطلاق وتنفيذ مشاريع إنسانية ذات طابع اجتماعي، صحي، تعليمي، وتنموي تُعنى برعاية وتأهيل الأشخاص ذوي الإعاقة، تغطي كافة أراضي الجمهورية العربية السورية. (وتمتد إلى منطقة الشرق الأوسط والعالم العربي والإسلامي، بما يعزز المبادئ الإنسانية المحايدة)، وذلك بعد الحصول على الموافقات الرسمية من وزارة الشؤون الاجتماعية والعمل، ووفقاً للأنظمة والقوانين النافذة.</p>
+            <p class="obj-content-en hidden">Launching and implementing humanitarian projects of a social, health, educational, and developmental nature that focus on caring for and rehabilitating persons with disabilities, covering all areas of the Syrian Arab Republic. (Extending to the Middle East, Arab, and Islamic world, enhancing neutral humanitarian principles), after obtaining official approvals from the Ministry of Social Affairs and Labor, and in accordance with applicable regulations and laws.</p>
           </div>
         </div>
         <div class="objective-item">
           <div class="objective-title" onclick="toggleObjective(this)">
-            2- الاستجابة الإنسانية لتداعيات الحروب والكوارث / Humanitarian Response to Wars & Disasters
-            <span>▼</span>
+            <span class="obj-num-ar">2-</span><span class="obj-num-en hidden">2-</span>
+            <span class="obj-text-ar">الاستجابة الإنسانية لتداعيات الحروب والكوارث</span>
+            <span class="obj-text-en hidden">Humanitarian Response to Wars & Disasters</span>
+            <span class="arrow">▼</span>
           </div>
           <div class="objective-content">
-            المساهمة في التخفيف من معاناة الأشخاص ذوي الإعاقة المتضررين من النزاعات المسلحة والكوارث الطبيعية، من خلال تدخلات إنسانية متوافقة مع القانون الدولي الإنساني ومعايير الأمم المتحدة للعمل الإنساني، بما يضمن كرامة الإنسان وحقه في الرعاية والتأهيل.
+            <p class="obj-content-ar">المساهمة في التخفيف من معاناة الأشخاص ذوي الإعاقة المتضررين من النزاعات المسلحة والكوارث الطبيعية، من خلال تدخلات إنسانية متوافقة مع القانون الدولي الإنساني ومعايير الأمم المتحدة للعمل الإنساني، بما يضمن كرامة الإنسان وحقه في الرعاية والتأهيل.</p>
+            <p class="obj-content-en hidden">Contributing to alleviating the suffering of persons with disabilities affected by armed conflicts and natural disasters through humanitarian interventions aligned with international humanitarian law and UN humanitarian standards, ensuring human dignity and the right to care and rehabilitation.</p>
           </div>
         </div>
         <div class="objective-item">
           <div class="objective-title" onclick="toggleObjective(this)">
-            3- توفير رعاية صحية وتأهيلية متكاملة / Comprehensive Healthcare & Rehabilitation
-            <span>▼</span>
+            <span class="obj-num-ar">3-</span><span class="obj-num-en hidden">3-</span>
+            <span class="obj-text-ar">توفير رعاية صحية وتأهيلية متكاملة</span>
+            <span class="obj-text-en hidden">Comprehensive Healthcare & Rehabilitation</span>
+            <span class="arrow">▼</span>
           </div>
           <div class="objective-content">
-            تقديم خدمات صحية وتأهيلية متكاملة وعالية الجودة للأشخاص ذوي الاحتياجات الخاصة، مع التركيز على ذوي الإعاقات الحركية، بهدف تعزيز استقلاليتهم، ودعم قدراتهم في أداء أنشطتهم الحياتية اليومية، وتمكينهم من الاندماج الفعّال والمستدام في المجتمع.
+            <p class="obj-content-ar">تقديم خدمات صحية وتأهيلية متكاملة وعالية الجودة للأشخاص ذوي الاحتياجات الخاصة، مع التركيز على ذوي الإعاقات الحركية، بهدف تعزيز استقلاليتهم، ودعم قدراتهم في أداء أنشطتهم الحياتية اليومية، وتمكينهم من الاندماج الفعّال والمستدام في المجتمع.</p>
+            <p class="obj-content-en hidden">Providing comprehensive, high-quality health and rehabilitation services to persons with special needs, focusing on those with mobility impairments, to enhance their independence, support their ability to perform daily life activities, and enable their effective and sustainable integration into society.</p>
           </div>
         </div>
         <div class="objective-item">
           <div class="objective-title" onclick="toggleObjective(this)">
-            4- تطوير منظومة التأهيل الشامل / Comprehensive Rehabilitation System Development
-            <span>▼</span>
+            <span class="obj-num-ar">4-</span><span class="obj-num-en hidden">4-</span>
+            <span class="obj-text-ar">تطوير منظومة التأهيل الشامل</span>
+            <span class="obj-text-en hidden">Comprehensive Rehabilitation System Development</span>
+            <span class="arrow">▼</span>
           </div>
-          <div class="objective-content">
-            عبر تنفيذ برامج متخصصة ومتكاملة تشمل:<br><br>
-            أ. برنامج تعزيز الاستقلال والاعتماد على الذات عبر:<br>
-            - تصنيع وتركيب الأطراف الصناعية، والأجهزة التعويضية والتقويمية بكافة أنواعها.<br>
-            - تصميم وتنفيذ خطط فردية للعلاج الفيزيائي والدعم النفسي والتأهيل الحركي بما يتناسب مع حالة كل مستفيد.<br>
-            - تمكين المستفيدين من تحقيق أعلى مستويات الاستقلالية في حياتهم اليومية.<br>
-            - توفير وسائل وتقنيات مساعدة متقدمة تدعم المشاركة المجتمعية الكاملة.<br><br>
-            
-            ب. برنامج الدمج الاجتماعي والتمكين المجتمعي عبر:<br>
-            - تنفيذ مبادرات وأنشطة شمولية تهدف إلى دمج ذوي الإعاقة الحركية في مختلف جوانب الحياة المجتمعية.<br>
-            - تعزيز الوعي المجتمعي بأهمية دعم وتمكين الأشخاص ذوي الإعاقة كجزء لا يتجزأ من النسيج المجتمعي.<br><br>
-            
-            ج. برنامج الدعم النفسي والاجتماعي عبر:<br>
-            - تقديم جلسات متخصصة في الدعم النفسي لبناء الثقة الذاتية وتخفيف الضغوط النفسية.<br>
-            - تمكين أسر الأشخاص ذوي الإعاقة من خلال الإرشاد والدعم المناسب للتعامل مع احتياجاتهم.<br><br>
-            
-            د. برنامج التعليم والبحث والتطوير عبر:<br>
-            - دعم وتمويل الأبحاث والدراسات العلمية في مجالات التأهيل والرعاية الصحية لذوي الاحتياجات الخاصة.<br>
-            - ابتكار وتطوير استراتيجيات جديدة لتحسين جودة الخدمات المقدمة، وتطبيق أفضل الممارسات العالمية في مجال التأهيل المجتمعي.<br><br>
-            
-            - لاتهدف المؤسسة إلى تحقيق الربح المادي.
+          <div class="objective-content scrollable">
+            <p class="obj-content-ar">
+              عبر تنفيذ برامج متخصصة ومتكاملة تشمل:<br><br>
+              أ. برنامج تعزيز الاستقلال والاعتماد على الذات عبر:<br>
+              - تصنيع وتركيب الأطراف الصناعية، والأجهزة التعويضية والتقويمية بكافة أنواعها.<br>
+              - تصميم وتنفيذ خطط فردية للعلاج الفيزيائي والدعم النفسي والتأهيل الحركي بما يتناسب مع حالة كل مستفيد.<br>
+              - تمكين المستفيدين من تحقيق أعلى مستويات الاستقلالية في حياتهم اليومية.<br>
+              - توفير وسائل وتقنيات مساعدة متقدمة تدعم المشاركة المجتمعية الكاملة.<br><br>
+              
+              ب. برنامج الدمج الاجتماعي والتمكين المجتمعي عبر:<br>
+              - تنفيذ مبادرات وأنشطة شمولية تهدف إلى دمج ذوي الإعاقة الحركية في مختلف جوانب الحياة المجتمعية.<br>
+              - تعزيز الوعي المجتمعي بأهمية دعم وتمكين الأشخاص ذوي الإعاقة كجزء لا يتجزأ من النسيج المجتمعي.<br><br>
+              
+              ج. برنامج الدعم النفسي والاجتماعي عبر:<br>
+              - تقديم جلسات متخصصة في الدعم النفسي لبناء الثقة الذاتية وتخفيف الضغوط النفسية.<br>
+              - تمكين أسر الأشخاص ذوي الإعاقة من خلال الإرشاد والدعم المناسب للتعامل مع احتياجاتهم.<br><br>
+              
+              د. برنامج التعليم والبحث والتطوير عبر:<br>
+              - دعم وتمويل الأبحاث والدراسات العلمية في مجالات التأهيل والرعاية الصحية لذوي الاحتياجات الخاصة.<br>
+              - ابتكار وتطوير استراتيجيات جديدة لتحسين جودة الخدمات المقدمة، وتطبيق أفضل الممارسات العالمية في مجال التأهيل المجتمعي.<br><br>
+              
+              - لاتهدف المؤسسة إلى تحقيق الربح المادي.
+            </p>
+            <p class="obj-content-en hidden">
+              Through specialized and integrated programs including:<br><br>
+              a. Independence & Self-Reliance Program via:<br>
+              - Manufacturing and fitting prosthetic limbs, orthotic and assistive devices of all types.<br>
+              - Designing and implementing individualized plans for physical therapy, psychological support, and motor rehabilitation tailored to each beneficiary.<br>
+              - Empowering beneficiaries to achieve the highest levels of independence in daily life.<br>
+              - Providing advanced assistive technologies to support full community participation.<br><br>
+              
+              b. Social Inclusion & Community Empowerment Program via:<br>
+              - Implementing inclusive initiatives and activities to integrate persons with mobility impairments into all aspects of community life.<br>
+              - Raising community awareness about the importance of supporting and empowering persons with disabilities as an integral part of the social fabric.<br><br>
+              
+              c. Psychosocial Support Program via:<br>
+              - Providing specialized psychological support sessions to build self-confidence and reduce psychological stress.<br>
+              - Empowering families of persons with disabilities through appropriate guidance and support to address their needs.<br><br>
+              
+              d. Education, Research & Development Program via:<br>
+              - Supporting and funding scientific research and studies in rehabilitation and healthcare for persons with special needs.<br>
+              - Innovating and developing new strategies to improve service quality and applying global best practices in community-based rehabilitation.<br><br>
+              
+              - The foundation does not aim for financial profit.
+            </p>
           </div>
         </div>
       </div>
@@ -455,91 +556,107 @@
 
     <!-- Section 4: Specialists -->
     <section id="specialists">
-      <h2>أخصائيي مؤسسة سبل الخير / Our Specialists</h2>
+      <h2 id="specialistsTitleAr">أخصائيو مؤسسة سبل الخير</h2>
+      <h2 id="specialistsTitleEn" class="hidden">Our Specialists</h2>
       <div class="specialists-grid">
         <div class="specialist-card">
           <img src="11.png" alt="قاسم المحمد" class="specialist-img" />
-          <div class="specialist-name">قاسم المحمد / Qasem Al-Mohammad</div>
-          <div class="specialist-desc">أخصائي أطراف صناعية منذ 2009 / Prosthetic Specialist since 2009</div>
+          <div class="specialist-name">قاسم المحمد</div>
+          <div class="specialist-desc-ar">أخصائي أطراف صناعية منذ 2009</div>
+          <div class="specialist-desc-en hidden">Prosthetic Specialist since 2009</div>
         </div>
         <div class="specialist-card">
           <img src="22.png" alt="بيان الجوابرة" class="specialist-img" />
-          <div class="specialist-name">بيان الجوابرة / Bayan Al-Jawabra</div>
-          <div class="specialist-desc">خريجة متمرسة من كلية العلوم الصحية بدمشق لعام 2025 / Experienced graduate from Damascus Faculty of Health Sciences, 2025</div>
+          <div class="specialist-name">بيان الجوابرة</div>
+          <div class="specialist-desc-ar">خريجة متمرسة من كلية العلوم الصحية بدمشق لعام 2025</div>
+          <div class="specialist-desc-en hidden">Experienced graduate from Damascus Faculty of Health Sciences, 2025</div>
         </div>
         <div class="specialist-card">
           <img src="33.png" alt="الاستاذ محروس المليح" class="specialist-img" />
-          <div class="specialist-name">الاستاذ محروس المليح / Prof. Mahrous Al-Malih</div>
-          <div class="specialist-desc">أخصائي أطراف صناعية وذو خبرة / Experienced Prosthetic Specialist</div>
+          <div class="specialist-name">الاستاذ محروس المليح</div>
+          <div class="specialist-desc-ar">أخصائي أطراف صناعية وذو خبرة</div>
+          <div class="specialist-desc-en hidden">Experienced Prosthetic Specialist</div>
         </div>
       </div>
     </section>
 
     <!-- Section 5: Achievements -->
     <section id="achievements">
-      <h2 id="achievementsTitle">Our Achievements</h2>
+      <h2 id="achievementsTitleAr">إنجازاتنا</h2>
+      <h2 id="achievementsTitleEn" class="hidden">Our Achievements</h2>
       <div class="achievements-grid">
         <div class="achievement-item">
-          <strong id="proj1Title">The Fajr Al-Amal Foundation Project</strong>
-          <p id="proj1Text">300 prosthetic limbs of various types were fitted, significantly improving the mobility and independence of beneficiaries. The project was licensed by the Free Daraa Governorate Council.</p>
+          <strong id="proj1TitleAr">مشروع مؤسسة فجر الأمل</strong>
+          <strong id="proj1TitleEn" class="hidden">The Fajr Al-Amal Foundation Project</strong>
+          <p id="proj1TextAr">تم تركيب 300 طرف صناعي من أنواع مختلفة، مما حسّن بشكل كبير من حركة واستقلالية المستفيدين. تم ترخيص المشروع من قبل مجلس محافظة درعا الحرة.</p>
+          <p id="proj1TextEn" class="hidden">300 prosthetic limbs of various types were fitted, significantly improving the mobility and independence of beneficiaries. The project was licensed by the Free Daraa Governorate Council.</p>
         </div>
         <div class="achievement-item">
-          <strong id="proj2Title">The Hayat Team Project</strong>
-          <p id="proj2Text">250 prosthetic limbs were provided along with physical therapy and psychological support programs, helping beneficiaries regain their self-confidence and their standing in society. This project was licensed by the Union of Civil Society Organizations in Turkey.</p>
+          <strong id="proj2TitleAr">مشروع فريق حياة</strong>
+          <strong id="proj2TitleEn" class="hidden">The Hayat Team Project</strong>
+          <p id="proj2TextAr">تم توفير 250 طرف صناعي مع برامج العلاج الطبيعي والدعم النفسي، مما ساعد المستفيدين على استعادة ثقتهم بأنفسهم ومكانتهم في المجتمع. تم ترخيص المشروع من قبل اتحاد منظمات المجتمع المدني في تركيا.</p>
+          <p id="proj2TextEn" class="hidden">250 prosthetic limbs were provided along with physical therapy and psychological support programs, helping beneficiaries regain their self-confidence and their standing in society. This project was licensed by the Union of Civil Society Organizations in Turkey.</p>
         </div>
       </div>
 
       <div class="images-row">
-        <img src="life1.jpg" alt="Life Project 1" />
-        <img src="life2.jpg" alt="Life Project 2" />
-        <img src="life3.jpg" alt="Life Project 3" />
+        <img src="life1.jpg" alt="مشروع حياة 1" />
+        <img src="life2.jpg" alt="مشروع حياة 2" />
+        <img src="life3.jpg" alt="مشروع حياة 3" />
       </div>
 
-      <a href="https://drive.google.com/file/d/1QxU9jrfU_MSeojr57Gu5JfXD_gQehl3N/view?usp=drive_link" target="_blank" class="pdf-button" id="pdfButton">Get to Know Us</a>
+      <a href="https://drive.google.com/file/d/1QxU9jrfU_MSeojr57Gu5JfXD_gQehl3N/view?usp=drive_link" target="_blank" class="pdf-button" id="pdfButtonAr">تعرف علينا</a>
+      <a href="https://drive.google.com/file/d/1QxU9jrfU_MSeojr57Gu5JfXD_gQehl3N/view?usp=drive_link" target="_blank" class="pdf-button hidden" id="pdfButtonEn">Get to Know Us</a>
     </section>
 
     <!-- Section 6: Documentary Video -->
     <section id="documentary">
-      <h2 id="docTitle">Get to know us better</h2>
+      <h2 id="docTitleAr">تعرف علينا بشكل أفضل</h2>
+      <h2 id="docTitleEn" class="hidden">Get to know us better</h2>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/73SKDM3fKxE" title="Documentary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/73SKDM3fKxE" title="وثائقي" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </section>
 
     <!-- Section 7: Articles -->
     <section id="articles">
-      <h2 id="articlesTitle">Articles about the team's work</h2>
+      <h2 id="articlesTitleAr">مقالات عن عمل الفريق</h2>
+      <h2 id="articlesTitleEn" class="hidden">Articles about the team's work</h2>
       <div class="articles-buttons">
-        <a href="https://akhbaralaan.net/news/arab-world/2016/3/23/life-project-end-suffering-amputees-daraa" target="_blank" class="article-btn" id="article1">Akhbar Alaan: Life Project</a>
-        <a href="https://alkhaleejonline.net/%D9%85%D8%AC%D8%AA%D9%85%D8%B9/%D9%81%D8%AC%D8%B1-%D8%A7%D9%84%D8%A3%D9%85%D9%84-%D9%85%D8%A4%D8%B3%D8%B3%D8%A9-%D8%AA%D8%A8%D9%86%D9%89-%D8%AA%D8%A3%D9%87%D9%8A%D9%84-%D8%AC%D8%B1%D9%8A%D9%85%D8%A9-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8-%D8%A8%D8%AC%D9%86%D9%88%D8%A8%D9%8A-%D8%B3%D9%88%D8%B1%D9%8A%D8%A9" target="_blank" class="article-btn" id="article2">Al Khaleej Online: Fajr Al Amal</a>
-        <a href="https://www.eqtsad.net/news/article/13517/?utm_source=chatgpt.com" target="_blank" class="article-btn" id="article3">Iqtisad.net: Hayat Project</a>
+        <a href="https://akhbaralaan.net/news/arab-world/2016/3/23/life-project-end-suffering-amputees-daraa" target="_blank" class="article-btn" id="article1Ar">أخبار الآن: مشروع حياة</a>
+        <a href="https://akhbaralaan.net/news/arab-world/2016/3/23/life-project-end-suffering-amputees-daraa" target="_blank" class="article-btn hidden" id="article1En">Akhbar Alaan: Life Project</a>
+        <a href="https://alkhaleejonline.net/%D9%85%D8%AC%D8%AA%D9%85%D8%B9/%D9%81%D8%AC%D8%B1-%D8%A7%D9%84%D8%A3%D9%85%D9%84-%D9%85%D8%A4%D8%B3%D8%B3%D8%A9-%D8%AA%D8%A8%D9%86%D9%89-%D8%AA%D8%A3%D9%87%D9%8A%D9%84-%D8%AC%D8%B1%D9%8A%D9%85%D8%A9-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8-%D8%A8%D8%AC%D9%86%D9%88%D8%A8%D9%8A-%D8%B3%D9%88%D8%B1%D9%8A%D8%A9" target="_blank" class="article-btn" id="article2Ar">الخليج أونلاين: فجر الأمل</a>
+        <a href="https://alkhaleejonline.net/%D9%85%D8%AC%D8%AA%D9%85%D8%B9/%D9%81%D8%AC%D8%B1-%D8%A7%D9%84%D8%A3%D9%85%D9%84-%D9%85%D8%A4%D8%B3%D8%B3%D8%A9-%D8%AA%D8%A8%D9%86%D9%89-%D8%AA%D8%A3%D9%87%D9%8A%D9%84-%D8%AC%D8%B1%D9%8A%D9%85%D8%A9-%D8%A7%D9%84%D8%AD%D8%B1%D8%A8-%D8%A8%D8%AC%D9%86%D9%88%D8%A8%D9%8A-%D8%B3%D9%88%D8%B1%D9%8A%D8%A9" target="_blank" class="article-btn hidden" id="article2En">Al Khaleej Online: Fajr Al Amal</a>
+        <a href="https://www.eqtsad.net/news/article/13517/?utm_source=chatgpt.com" target="_blank" class="article-btn" id="article3Ar">اقتصاد نت: مشروع حياة</a>
+        <a href="https://www.eqtsad.net/news/article/13517/?utm_source=chatgpt.com" target="_blank" class="article-btn hidden" id="article3En">Iqtisad.net: Hayat Project</a>
       </div>
     </section>
 
     <!-- Section 8: Media Reports -->
     <section id="media">
-      <h2 id="mediaTitle">Media Reports</h2>
+      <h2 id="mediaTitleAr">تقارير إعلامية</h2>
+      <h2 id="mediaTitleEn" class="hidden">Media Reports</h2>
       <div class="media-grid">
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/VZo4-z9R-Qc" title="Media 1" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/VZo4-z9R-Qc" title="تقرير 1" allowfullscreen></iframe>
         </div>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/HdlAHheg948" title="Media 2" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/HdlAHheg948" title="تقرير 2" allowfullscreen></iframe>
         </div>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/-iVCWNMLBjg" title="Media 3" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/-iVCWNMLBjg" title="تقرير 3" allowfullscreen></iframe>
         </div>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/MhjMzpYDuT0" title="Media 4" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/MhjMzpYDuT0" title="تقرير 4" allowfullscreen></iframe>
         </div>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/73SKDM3fKxE" title="Media 5" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/73SKDM3fKxE" title="تقرير 5" allowfullscreen></iframe>
         </div>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/xR9-Z-9R-qc" title="Media 6" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/xR9-Z-9R-qc" title="تقرير 6" allowfullscreen></iframe>
         </div>
         <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/6WwtbfMg1ho" title="Media 7" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/6WwtbfMg1ho" title="تقرير 7" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -548,58 +665,109 @@
   <footer>
     <div class="contact-info" id="phone">+963965359000</div>
     <div class="contact-info" id="email">subul.alkhair.sy@gmail.com</div>
-    <div class="copyright">All rights reserved 2015-2026</div>
+    <div class="copyright">جميع الحقوق محفوظة 2015-2026</div>
   </footer>
 
-  <script>
-    function toggleObjective(element) {
-      const content = element.nextElementSibling;
-      const isActive = content.classList.contains('active');
-      
-      // Close all other objectives
-      document.querySelectorAll('.objective-content').forEach(item => {
-        item.classList.remove('active');
-      });
-      
-      // Toggle current objective
-      if (!isActive) {
-        content.classList.add('active');
-      }
-      
-      // Update arrow icon
-      const arrow = element.querySelector('span');
-      document.querySelectorAll('.objective-title span').forEach(span => {
-        span.textContent = '▼';
-      });
-      if (!isActive) {
-        arrow.textContent = '▲';
-      }
-    }
-
-    // Language toggle functionality
-    document.getElementById('langToggle').addEventListener('click', function() {
-      const htmlTag = document.getElementById('htmlTag');
-      const currentLang = htmlTag.getAttribute('lang');
-      
-      if (currentLang === 'en') {
-        htmlTag.setAttribute('lang', 'ar');
-        htmlTag.setAttribute('dir', 'rtl');
-        htmlTag.classList.add('arabic');
-        htmlTag.classList.remove('english');
-        this.textContent = 'English';
-      } else {
-        htmlTag.setAttribute('lang', 'en');
-        htmlTag.setAttribute('dir', 'ltr');
-        htmlTag.classList.add('english');
-        htmlTag.classList.remove('arabic');
-        this.textContent = 'العربية';
-      }
-    });
-
-    // Initialize English mode
-    document.getElementById('htmlTag').classList.add('english');
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
 
+
+              <script>
+                              function toggleObjective(element) {
+  const content = element.closest('.objective-item').querySelector('.objective-content');
+  const isActive = content.classList.contains('active');
+  
+  // Close all other objectives
+  document.querySelectorAll('.objective-content').forEach(item => {
+    item.classList.remove('active');
+  });
+  
+  // Toggle current objective
+  if (!isActive) {
+    content.classList.add('active');
+  }
+  
+  // Update arrow icon
+  document.querySelectorAll('.objective-title .arrow').forEach(arrow => {
+    arrow.textContent = '▼';
+  });
+  if (!isActive) {
+    element.querySelector('.arrow').textContent = '▲';
+  }
+}
+
+// Language toggle functionality
+document.getElementById('langToggle').addEventListener('click', function() {
+  const htmlTag = document.getElementById('htmlTag');
+  const currentLang = htmlTag.getAttribute('lang');
+  
+  if (currentLang === 'ar') {
+    // Switch to English
+    htmlTag.setAttribute('lang', 'en');
+    htmlTag.setAttribute('dir', 'ltr');
+    htmlTag.classList.remove('arabic');
+    htmlTag.classList.add('english');
+    
+    // Show English content
+    document.querySelectorAll('.hidden').forEach(el => {
+      if (!el.classList.contains('obj-content-ar') && 
+          !el.classList.contains('obj-num-ar') && 
+          !el.classList.contains('obj-text-ar') &&
+          !el.classList.contains('specialist-desc-ar')) {
+        el.classList.remove('hidden');
+      }
+    });
+    
+    // Hide Arabic content
+    document.querySelectorAll('[class*="-ar"]').forEach(el => {
+      el.classList.add('hidden');
+    });
+    
+    // Update button text
+    this.querySelector('.lang-icon').textContent = 'AR';
+    
+    // Update title
+    document.title = 'Subul Al Khair Humanitarian Foundation';
+  } else {
+    // Switch to Arabic
+    htmlTag.setAttribute('lang', 'ar');
+    htmlTag.setAttribute('dir', 'rtl');
+    htmlTag.classList.remove('english');
+    htmlTag.classList.add('arabic');
+    
+    // Show Arabic content
+    document.querySelectorAll('[class*="-ar"]').forEach(el => {
+      el.classList.remove('hidden');
+    });
+    
+    // Hide English content
+    document.querySelectorAll('.hidden').forEach(el => {
+      if (!el.classList.contains('obj-content-en') && 
+          !el.classList.contains('obj-num-en') && 
+          !el.classList.contains('obj-text-en') &&
+          !el.classList.contains('specialist-desc-en')) {
+        el.classList.add('hidden');
+      }
+    });
+    document.querySelectorAll('[class*="-en"]').forEach(el => {
+      el.classList.add('hidden');
+    });
+    
+    // Update button text
+    this.querySelector('.lang-icon').textContent = 'EN';
+    
+    // Update title
+    document.title = 'مؤسسة سبل الخير الإنسانية';
+  }
+});
+
+// Initialize Arabic mode
+document.getElementById('htmlTag').classList.add('arabic');
+
+
+              </script>
+                        </body>
+                        </html>
+                    
