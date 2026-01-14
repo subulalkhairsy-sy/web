@@ -3,12 +3,384 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Subul Al Khair Humanitarian Foundation - Providing prosthetic limbs and comprehensive rehabilitation for amputees in Syria and beyond. Non-profit, humanitarian mission." />
+  <meta name="keywords" content="prosthetic limbs, humanitarian foundation, Syria, rehabilitation, disability support, non-profit, amputees, Subul Al Khair" />
+  <meta name="author" content="Subul Al Khair Humanitarian Foundation" />
   <title>Subul Al Khair Humanitarian Foundation</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #2c6fbb;
+      --secondary-color: #4a90e2;
+      --accent-color: #f8f9fa;
+      --text-color: #333;
+      --light-bg: #f8f9fa;
+      --dark-bg: #1a1a1a;
+      --white: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-bg);
+    }
+
+    .arabic {
+      font-family: 'Tahoma', 'Arial', sans-serif;
+      direction: rtl;
+    }
+
+    .english {
+      direction: ltr;
+    }
+
+    header {
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--white);
+      padding: 1rem 2rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .shimmer {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 3s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .lang-toggle {
+      background: var(--white);
+      color: var(--primary-color);
+      border: 2px solid var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    .lang-toggle:hover {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+      border-bottom: 3px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    p, .vision-text {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .achievement-item {
+      background: var(--accent-color);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .achievement-item strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .images-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .images-row img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .pdf-button {
+      display: inline-block;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 0.8rem 2rem;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .pdf-button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .articles-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .article-btn {
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: var(--transition);
+      text-align: center;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .article-btn:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    footer {
+      background: var(--dark-bg);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-info {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .copyright {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    /* Objectives Section */
+    .objectives-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .objective-title {
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .objective-title:hover {
+      background: var(--secondary-color);
+    }
+
+    .objective-content {
+      background: var(--accent-color);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-top: 0.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+
+    .objective-content.active {
+      max-height: 500px;
+      padding: 1.5rem;
+    }
+
+    /* Specialists Section */
+    .specialists-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .specialist-card {
+      text-align: center;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .specialist-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .specialist-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid var(--primary-color);
+    }
+
+    .specialist-name {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .specialist-desc {
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+      
+      .articles-buttons {
+        flex-direction: column;
+      }
+      
+      .article-btn {
+        min-width: unset;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1rem;
+      }
+      
+      h1 {
+        font-size: 1.3rem;
+      }
+      
+      .logo {
+        width: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <header>
+    <div class="shimmer"></div>
     <img src="logo.png" alt="Subul Al Khair Logo" class="logo" id="logoImg" />
     <h1 id="siteTitle">Subul Al Khair Humanitarian Foundation</h1>
     <button class="lang-toggle" id="langToggle">العربية</button>
@@ -31,7 +403,91 @@
       </div>
     </section>
 
-    <!-- Section 3: Achievements -->
+    <!-- Section 3: Objectives -->
+    <section id="objectives">
+      <h2>أهدافنا / Our Objectives</h2>
+      <div class="objectives-container">
+        <div class="objective-item">
+          <div class="objective-title" onclick="toggleObjective(this)">
+            1- تنفيذ مشاريع إنسانية شاملة ومستدامة / Comprehensive & Sustainable Humanitarian Projects
+            <span>▼</span>
+          </div>
+          <div class="objective-content">
+            إطلاق وتنفيذ مشاريع إنسانية ذات طابع اجتماعي، صحي، تعليمي، وتنموي تُعنى برعاية وتأهيل الأشخاص ذوي الإعاقة، تغطي كافة أراضي الجمهورية العربية السورية. (وتمتد إلى منطقة الشرق الأوسط والعالم العربي والإسلامي، بما يعزز المبادئ الإنسانية المحايدة)، وذلك بعد الحصول على الموافقات الرسمية من وزارة الشؤون الاجتماعية والعمل، ووفقاً للأنظمة والقوانين النافذة.
+          </div>
+        </div>
+        <div class="objective-item">
+          <div class="objective-title" onclick="toggleObjective(this)">
+            2- الاستجابة الإنسانية لتداعيات الحروب والكوارث / Humanitarian Response to Wars & Disasters
+            <span>▼</span>
+          </div>
+          <div class="objective-content">
+            المساهمة في التخفيف من معاناة الأشخاص ذوي الإعاقة المتضررين من النزاعات المسلحة والكوارث الطبيعية، من خلال تدخلات إنسانية متوافقة مع القانون الدولي الإنساني ومعايير الأمم المتحدة للعمل الإنساني، بما يضمن كرامة الإنسان وحقه في الرعاية والتأهيل.
+          </div>
+        </div>
+        <div class="objective-item">
+          <div class="objective-title" onclick="toggleObjective(this)">
+            3- توفير رعاية صحية وتأهيلية متكاملة / Comprehensive Healthcare & Rehabilitation
+            <span>▼</span>
+          </div>
+          <div class="objective-content">
+            تقديم خدمات صحية وتأهيلية متكاملة وعالية الجودة للأشخاص ذوي الاحتياجات الخاصة، مع التركيز على ذوي الإعاقات الحركية، بهدف تعزيز استقلاليتهم، ودعم قدراتهم في أداء أنشطتهم الحياتية اليومية، وتمكينهم من الاندماج الفعّال والمستدام في المجتمع.
+          </div>
+        </div>
+        <div class="objective-item">
+          <div class="objective-title" onclick="toggleObjective(this)">
+            4- تطوير منظومة التأهيل الشامل / Comprehensive Rehabilitation System Development
+            <span>▼</span>
+          </div>
+          <div class="objective-content">
+            عبر تنفيذ برامج متخصصة ومتكاملة تشمل:<br><br>
+            أ. برنامج تعزيز الاستقلال والاعتماد على الذات عبر:<br>
+            - تصنيع وتركيب الأطراف الصناعية، والأجهزة التعويضية والتقويمية بكافة أنواعها.<br>
+            - تصميم وتنفيذ خطط فردية للعلاج الفيزيائي والدعم النفسي والتأهيل الحركي بما يتناسب مع حالة كل مستفيد.<br>
+            - تمكين المستفيدين من تحقيق أعلى مستويات الاستقلالية في حياتهم اليومية.<br>
+            - توفير وسائل وتقنيات مساعدة متقدمة تدعم المشاركة المجتمعية الكاملة.<br><br>
+            
+            ب. برنامج الدمج الاجتماعي والتمكين المجتمعي عبر:<br>
+            - تنفيذ مبادرات وأنشطة شمولية تهدف إلى دمج ذوي الإعاقة الحركية في مختلف جوانب الحياة المجتمعية.<br>
+            - تعزيز الوعي المجتمعي بأهمية دعم وتمكين الأشخاص ذوي الإعاقة كجزء لا يتجزأ من النسيج المجتمعي.<br><br>
+            
+            ج. برنامج الدعم النفسي والاجتماعي عبر:<br>
+            - تقديم جلسات متخصصة في الدعم النفسي لبناء الثقة الذاتية وتخفيف الضغوط النفسية.<br>
+            - تمكين أسر الأشخاص ذوي الإعاقة من خلال الإرشاد والدعم المناسب للتعامل مع احتياجاتهم.<br><br>
+            
+            د. برنامج التعليم والبحث والتطوير عبر:<br>
+            - دعم وتمويل الأبحاث والدراسات العلمية في مجالات التأهيل والرعاية الصحية لذوي الاحتياجات الخاصة.<br>
+            - ابتكار وتطوير استراتيجيات جديدة لتحسين جودة الخدمات المقدمة، وتطبيق أفضل الممارسات العالمية في مجال التأهيل المجتمعي.<br><br>
+            
+            - لاتهدف المؤسسة إلى تحقيق الربح المادي.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Specialists -->
+    <section id="specialists">
+      <h2>أخصائيي مؤسسة سبل الخير / Our Specialists</h2>
+      <div class="specialists-grid">
+        <div class="specialist-card">
+          <img src="11.png" alt="قاسم المحمد" class="specialist-img" />
+          <div class="specialist-name">قاسم المحمد / Qasem Al-Mohammad</div>
+          <div class="specialist-desc">أخصائي أطراف صناعية منذ 2009 / Prosthetic Specialist since 2009</div>
+        </div>
+        <div class="specialist-card">
+          <img src="22.png" alt="بيان الجوابرة" class="specialist-img" />
+          <div class="specialist-name">بيان الجوابرة / Bayan Al-Jawabra</div>
+          <div class="specialist-desc">خريجة متمرسة من كلية العلوم الصحية بدمشق لعام 2025 / Experienced graduate from Damascus Faculty of Health Sciences, 2025</div>
+        </div>
+        <div class="specialist-card">
+          <img src="33.png" alt="الاستاذ محروس المليح" class="specialist-img" />
+          <div class="specialist-name">الاستاذ محروس المليح / Prof. Mahrous Al-Malih</div>
+          <div class="specialist-desc">أخصائي أطراف صناعية وذو خبرة / Experienced Prosthetic Specialist</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Achievements -->
     <section id="achievements">
       <h2 id="achievementsTitle">Our Achievements</h2>
       <div class="achievements-grid">
@@ -54,7 +510,7 @@
       <a href="https://drive.google.com/file/d/1QxU9jrfU_MSeojr57Gu5JfXD_gQehl3N/view?usp=drive_link" target="_blank" class="pdf-button" id="pdfButton">Get to Know Us</a>
     </section>
 
-    <!-- Section 4: Documentary Video -->
+    <!-- Section 6: Documentary Video -->
     <section id="documentary">
       <h2 id="docTitle">Get to know us better</h2>
       <div class="video-container">
@@ -62,7 +518,7 @@
       </div>
     </section>
 
-    <!-- Section 5: Articles -->
+    <!-- Section 7: Articles -->
     <section id="articles">
       <h2 id="articlesTitle">Articles about the team's work</h2>
       <div class="articles-buttons">
@@ -72,7 +528,7 @@
       </div>
     </section>
 
-    <!-- Section 6: Media Reports -->
+    <!-- Section 8: Media Reports -->
     <section id="media">
       <h2 id="mediaTitle">Media Reports</h2>
       <div class="media-grid">
@@ -107,7 +563,54 @@
     <div class="copyright">All rights reserved 2015-2026</div>
   </footer>
 
-  <script src="script.js"></script>
-</body>
+  <script>
+    function toggleObjective(element) {
+      const content = element.nextElementSibling;
+      const isActive = content.classList.contains('active');
+      
+      // Close all other objectives
+      document.querySelectorAll('.objective-content').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Toggle current objective
+      if (!isActive) {
+        content.classList.add('active');
+      }
+      
+      // Update arrow icon
+      const arrow = element.querySelector('span');
+      document.querySelectorAll('.objective-title span').forEach(span => {
+        span.textContent = '▼';
+      });
+      if (!isActive) {
+        arrow.textContent = '▲';
+      }
+    }
 
+    // Language toggle functionality
+    document.getElementById('langToggle').addEventListener('click', function() {
+      const htmlTag = document.getElementById('htmlTag');
+      const currentLang = htmlTag.getAttribute('lang');
+      
+      if (currentLang === 'en') {
+        htmlTag.setAttribute('lang', 'ar');
+        htmlTag.setAttribute('dir', 'rtl');
+        htmlTag.classList.add('arabic');
+        htmlTag.classList.remove('english');
+        this.textContent = 'English';
+      } else {
+        htmlTag.setAttribute('lang', 'en');
+        htmlTag.setAttribute('dir', 'ltr');
+        htmlTag.classList.add('english');
+        htmlTag.classList.remove('arabic');
+        this.textContent = 'العربية';
+      }
+    });
+
+    // Initialize English mode
+    document.getElementById('htmlTag').classList.add('english');
+  </script>
+</body>
 </html>
+
