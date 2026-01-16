@@ -1,7 +1,7 @@
 // Language data
 const translations = {
   en: {
-    siteTitle: "Sobol Al Khair Humanitarian Foundation",
+    siteTitle: "Subul Al Khair Humanitarian Foundation",
     aboutTitle: "About Us",
     aboutText: "Our staff consists of a group of academic competencies and practical experience. Our members hold specialized university degrees, qualifying them to provide the best services. We work tirelessly for aspiring children and youth with needs such as amputations and limb deficiencies, and the elderly who need care.",
     visionTitle: "Our Vision",
@@ -132,4 +132,5 @@ document.querySelectorAll('section').forEach(section => {
 });
 
 // Initialize
+
 updateLanguage('en');
